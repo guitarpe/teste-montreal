@@ -1,0 +1,47 @@
+#servidor
+server:
+  host: localhost
+  port: 8089
+
+aplicacao:
+  versao: 1.0
+
+#Feign
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 60000
+        readTimeout: 60000
+  httpclient:
+    disable-ssl-validation: false
+    enabled: false
+  okhttp:
+    enabled: true
+
+#LOGGING
+logging:
+  level:
+    root: INFO
+    com.sample.feign.demofeigncustomconfig: INFO
+    com.innovea: INFO
+    org.springframework.web.client: INFO
+    org.springframework.security.oauth2: INFO
+
+#H2
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 12345
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        ddl-auto: update
+  h2:
+    console:
+      enabled: true
+      path: /h2-ui
